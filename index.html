@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index page for regex lab</title>
+</head>
+<body>
+
+<div id="container">
+
+</div>
+
+</body>
+<script type="text/javascript">
+
+    var printRegexMatches = function(stringArr, regex){
+        var s = '';
+        var html = [];
+        for(var i= 0, len=stringArr.length; i<len; i++){
+            var string = stringArr[i];
+            html.push(string.match(regex));
+        }
+        document.getElementById('container').innerHTML =  html.join('</br>');
+    }
+
+
+    var urls = [];
+    urls.push('/test/?a=b&b=c#page/reporting/test=testValue;test2=test2Value');
+    urls.push('https://github.com/ravihamsa/regexlab');
+    urls.push('https://mail.google.com/mail/ca/u/0/#inbox');
+    urls.push('http://www.inmobi.com/products/sdk/');
+    urls.push('https://www.google.co.in/webhp?source=search_app#safe=off&output=search&sclient=psy-ab&q=raiv+hamsa&oq=raiv+hamsa&gs_l=hp.3..0i22i30l4.2115.3185.0.3480.10.10.0.0.0.0.244.1359.4j5j1.10.0...0.0.0..1c.1.17.psy-ab.no4ev1iJ4Gk&pbx=1&bav=on.2,or.r_cp.r_qf.&bvm=bv.48705608,d.bmk&fp=454708d46e718598&biw=1920&bih=1043');
+
+
+
+    printRegexMatches(urls, /([A-Za-z0-9]+):(?:\/{0,3})([^\/]+)/);
+
+
+</script>
+</html>
